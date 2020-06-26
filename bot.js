@@ -1,3 +1,9 @@
+const Twit = require('twit');
+const config = require('./config');
+const T = new Twit(config);
+const fs = require('fs')
+
+
 console.log("The bot is starting");
 
 // //Get the day I'm coding on
@@ -8,10 +14,8 @@ const daysBetween = differenceInDays(today, startDate)
 const days = `{Day${daysBetween + 1}}`
 
 //The tweeting part
-const Twit = require('twit');
-const config = require('./config');
-const T = new Twit(config);
-const fs = require('fs')
+
+
 
 tweetIt();
 
