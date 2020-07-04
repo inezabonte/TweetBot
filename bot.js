@@ -20,23 +20,23 @@ const days = `{Day${daysBetween + 1}}`
 tweetIt();
 
 function tweetIt() {
-    const fileName = 'images/Day84.png'
-    let params = {
-        encoding: 'base64'
-    }
-    const b64 = fs.readFileSync(fileName, params)
-    T.post('media/upload', {media_data: b64}, mergeContent)
+    // const fileName = 'images/carrot.png'
+    // let params = {
+    //     encoding: 'base64'
+    // }
+    // const b64 = fs.readFileSync(fileName, params)
+    // T.post('media/upload', {media_data: b64}, mergeContent)
 
-
+    mergeContent()
     function mergeContent(err, data, response) {
         //This is where I will actually tweet
         if(err){
             console.log("Error in combining the image and tweet")
         }else {
-            const imageId = data.media_id_string;
+            //const imageId = data.media_id_string;
             let tweet = {
-                status: `${days} \n Tweeting from my tweetBot in the console 😁 \n #100DaysOfCode #javascript #nodejs @zadock_254`,
-                media_ids: [imageId]
+                status: `${days} \nTook a break from Front End for a while currently focused on learning NodeJs and BabelJs for the past week which have become a challenging yet fun experience.\n#100DaysOfCode #javascript @zadock_254`
+                //media_ids: [imageId]
             }
 
             T.post('statuses/update', tweet, tweeted)
